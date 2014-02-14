@@ -1,0 +1,35 @@
+{
+  "name": "rps",
+  "version": "0.1.0",
+  "homepage": "https://github.com/vinnylinck/rps",
+  "authors": [
+    "Vinicius Linck <vinnylinck@gmail.com>"
+  ],
+  "description": "A Retail insight Orchestrator mobile app",
+  "main": "app/index.html",
+  "keywords": [
+    "AngularJS",
+    "Topcoat",
+    "Mobile",
+    "Javascript"
+  ],
+  "license": "GPL",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.12",
+    "angular-route": "~1.2.12",
+    "angular-touch": "~1.2.12",
+    "angular-animate": "~1.2.12",
+    "topcoat": "~0.8.0",
+    "angular-bindonce": "~0.3.1",
+    "font-awesome": "~4.0.3"
+  }
+}
