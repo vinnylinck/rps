@@ -1,0 +1,36 @@
+{
+    "version": "0.1.0",
+    "name": "RIO PocketStore",
+    "launch_path": "/src/index.html",
+    "description": "A mobile client for Retail insight Orchestrator",
+    "icons": {
+        "16": "/src/img/res/icon-128.png",
+        "32": "/src/img/res/icon-128.png",
+        "48": "/src/img/res/icon-48.png",
+        "60": "/src/img/res/icon-128.png",
+        "64": "/src/img/res/icon-64.png",
+        "90": "/src/img/res/icon-128.png",
+        "120": "/src/img/res/icon-128.png",
+        "128": "/src/img/res/icon-128.png"
+    },
+    "developer": {
+        "name": "Vinicius Linck",
+        "url": "http://vinnylinck.tumblr.com/"
+    },
+    "installs_allowed_from": ["*"],    
+    "default_locale": "en",
+    "locales": {
+        "en": {
+            "name": "RIO PocketStore",
+            "description": "A mobile client for Retail insight Orchestrator"
+        },
+        "en-US": {
+            "name": "RIO PocketStore",
+            "description": "A mobile client for Retail insight Orchestrator"
+        },
+        "pt_BR": {
+            "name": "RIO PocketStore",
+            "description": "Aplicativo cliente para a plataforma RIO"
+        }     
+    }
+}

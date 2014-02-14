@@ -1,0 +1,12 @@
+@media screen and (min-width:320px) {
+    
+    /* 
+    Gecko 18 has issues with width: 100% + inheritance + div display value.
+    This was fixed only on Gecko 25.
+    */
+    .aligner .item.limit-7 {
+        width: 224px;
+        min-width: 224px;
+        max-width: 224px;
+    }    
+}

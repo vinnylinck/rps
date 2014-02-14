@@ -6,7 +6,7 @@
     "Vinicius Linck <vinnylinck@gmail.com>"
   ],
   "description": "A Retail insight Orchestrator mobile app",
-  "main": "app/index.html",
+  "main": "app/src/index.html",
   "keywords": [
     "AngularJS",
     "Topcoat",
