@@ -1,5 +1,5 @@
 /*global angular*/
-angular.module("RPS").controller("rootController", ["$rootScope", "$scope", "$location", "$timeout", "rps.config", function RootController($rootScope, $scope, $location, $timeout, rpsConfig) {
+angular.module("RPS").controller("rootController", ["$rootScope", "$scope", "$location", "$timeout", "rps.config", "storageFactory", function RootController($rootScope, $scope, $location, $timeout, rpsConfig, storageFactory) {
     'use strict';
     
     $scope.isLayoutAnimated = false;
@@ -21,4 +21,8 @@ angular.module("RPS").controller("rootController", ["$rootScope", "$scope", "$lo
     $rootScope.disableAnimate = function rootDisableAnimate() {
         $scope.isLayoutAnimated = false;
     };
+    
+    //
+    $rootScope.session = storageFactory('sessionStorage');
+    $rootScope.storage = storageFactory('localStorage');
 }]);

@@ -80,4 +80,10 @@ html, body {
 
 /* LOGIN */
 /*****************************************/
+.logo-sub.green {
+    color: green;
+}
 
+.login-elm {
+    width: 197px;
+}
