@@ -1,6 +1,6 @@
 {
     "version": "0.1.0",
-    "name": "RIO PocketStore",
+    "name": "RIO PS",
     "launch_path": "/src/index.html",
     "description": "A mobile client for Retail insight Orchestrator",
     "icons": {
@@ -21,15 +21,15 @@
     "default_locale": "en",
     "locales": {
         "en": {
-            "name": "RIO PocketStore",
+            "name": "RIO  PocketStore",
             "description": "A mobile client for Retail insight Orchestrator"
         },
         "en-US": {
-            "name": "RIO PocketStore",
+            "name": "RIO  PocketStore",
             "description": "A mobile client for Retail insight Orchestrator"
         },
         "pt_BR": {
-            "name": "RIO PocketStore",
+            "name": "RIO  PocketStore",
             "description": "Aplicativo cliente para a plataforma RIO"
         }     
     }

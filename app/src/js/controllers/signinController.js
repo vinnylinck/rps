@@ -1,5 +1,5 @@
 /*global angular, alert, console*/
-angular.module("RPS").controller("signinController", ["$scope", "$http", function SigninController($scope, $http) {
+angular.module("RPS").controller("signinController", ["$scope", "$http", "$rootScope", function SigninController($scope, $http, $rootScope) {
     'use strict';
 
     var doLogin, onSuccess, onError;
@@ -10,15 +10,23 @@ angular.module("RPS").controller("signinController", ["$scope", "$http", functio
 
     //
     onSuccess = function (data) {
-        
+
+        // if everything is ok...
         if (data.ok) {
-            
-            // saving user
-            $scope.session.putObj("CUR_USER", data.result);
-            
-            // redirecting to store selection screen
-            $scope.goTo('/stores');
-            
+
+            // remember: no support for admin accounts
+            if (data.result.admin) {
+                alert('Sorry... no support for admin accounts yet.');
+                $scope.isLoading = false;
+            } else {
+                // saving user
+                $scope.session.putObj("CUR_USER", data.result);
+
+                // redirecting to store selection screen
+                $scope.goTo('/stores');
+            }
+
+        // if facing issues...    
         } else {
             // internal failure during log-in?
             alert(data.result.error.message);
@@ -42,6 +50,8 @@ angular.module("RPS").controller("signinController", ["$scope", "$http", functio
             };
 
         $scope.isLoading = true;
+        $scope.$broadcast("RPS_BLUR_ALL");
+
         $http.post(uri, req).success(onSuccess).error(onError);
     };
 

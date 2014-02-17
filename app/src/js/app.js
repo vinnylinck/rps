@@ -3,13 +3,13 @@
     'use strict';
     
     // creating module
-    var app = angular.module("RPS", ["ngRoute", "ngAnimate", "ngTouch"]);
+    var app = angular.module("RPS", ["ngRoute", "ngAnimate", "ngTouch", "pasvaz.bindonce"]);
     
     // setting constants
     app.constant(
         "rps.config",
         {
-            url: "http://rio-tst.herokuapp.com/"
+            url: "http://localhost:9000/"
         }
     );
     
