@@ -17,7 +17,7 @@
         "name": "Vinicius Linck",
         "url": "http://vinnylinck.tumblr.com/"
     },
-    "installs_allowed_from": ["*"],    
+    "installs_allowed_from": ["*"],
     "default_locale": "en",
     "locales": {
         "en": {

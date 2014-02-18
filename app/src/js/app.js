@@ -9,17 +9,23 @@
     app.constant(
         "rps.config",
         {
-            url: "http://localhost:9000/"
+            url: "http://rio-tst.herokuapp.com/"
+            //url: "http://localhost:9000/"
         }
     );
     
     // config time
-    app.config(["$routeProvider", function AppConfig($routeProvider) {
+    app.config(["$routeProvider", "$httpProvider", function AppConfig($routeProvider, $httpProvider) {
+        
+        //
         $routeProvider.when("/splash", { templateUrl: "partials/splash.html", controller: "splashController"});
         $routeProvider.when("/signin", { templateUrl: "partials/signin.html", controller: "signinController"});
         $routeProvider.when("/stores", { templateUrl: "partials/stores.html", controller: "storesController"});
         
         $routeProvider.otherwise({ redirectTo: "/splash" });
+        
+        //
+        $httpProvider.defaults.withCredentials = true;
     }]);
     
     
