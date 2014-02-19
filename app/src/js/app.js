@@ -9,8 +9,8 @@
     app.constant(
         "rps.config",
         {
-            //url: "http://rio-tst.herokuapp.com/"
-            url: "http://localhost:9000/"
+            url: "http://rio-tst.herokuapp.com/"
+            //url: "http://localhost:9000/"
         }
     );
     

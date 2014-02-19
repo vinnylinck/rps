@@ -2,14 +2,42 @@
 angular.module("RPS").controller("signinController", ["$scope", "$http", "$rootScope", function SigninController($scope, $http, $rootScope) {
     'use strict';
 
-    var doLogin, onSuccess, onError;
+    var doLogin, onLoginSuccess, doLoadProfile, onLoadProfileSucess, onError;
 
     $scope.isLoading = false;
     $scope.username = $scope.storage.get("LAST_USER") || "";
     $scope.password = "";
 
+
+    // on load profile success
+    onLoadProfileSucess = function (data) {
+        if (data.ok) {
+            $scope.session.putObj('CUR_PROFILE', data.result);
+            $scope.goTo('/stores');
+        } else {
+            console.warn(data.error);
+            alert(data.error.message);
+            $scope.isLoading = false;
+        }        
+    };
+
+
+    // doLoadProfile
+    doLoadProfile = function (user){
+        if (!user.profile) {
+            alert('No profile is assigned to ' + user.username);
+            $scope.isLoading = false;
+        } else {
+            $http.get($scope.config.url + 'profiles/' + user.profile).success(onLoadProfileSucess).error(onError);
+        }
+    };
+
+
     //
-    onSuccess = function (data) {
+    onLoginSuccess = function (data) {
+        // preparing for profile loading
+        var uri;
+
 
         // if everything is ok...
         if (data.ok) {
@@ -23,11 +51,11 @@ angular.module("RPS").controller("signinController", ["$scope", "$http", "$rootS
                 $scope.session.putObj("CUR_USER", data.result);
                 $scope.storage.put("LAST_USER", data.result.username);
 
-                // redirecting to store selection screen
-                $scope.goTo('/stores');
+                // loading profile
+                doLoadProfile(data.result);
             }
 
-        // if facing issues...    
+            // if facing issues...    
         } else {
             // internal failure during log-in?
             alert(data.result.error.message);
@@ -53,7 +81,7 @@ angular.module("RPS").controller("signinController", ["$scope", "$http", "$rootS
         $scope.isLoading = true;
         $scope.$broadcast("RPS_BLUR_ALL");
 
-        $http.post(uri, req).success(onSuccess).error(onError);
+        $http.post(uri, req).success(onLoginSuccess).error(onError);
     };
 
     //
@@ -64,8 +92,4 @@ angular.module("RPS").controller("signinController", ["$scope", "$http", "$rootS
             doLogin($scope.username, $scope.password);
         }
     };
-    
-    // loading user
-    
-
 }]);

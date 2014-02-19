@@ -3,9 +3,8 @@ angular.module("RPS").controller("storesController", ["$scope", "$http", functio
     'use strict';
 
     // getting profile
-    var curUsr = $scope.session.getObj('CUR_USER'),
-        profileUri = $scope.config.url + 'profiles/' + curUsr.profile,
-        workStoreUri = $scope.config.url + 'users/session/store/',
+    var workStoreUri = $scope.config.url + 'users/session/store/',
+        curProf = $scope.session.getObj('CUR_PROFILE'),
 
         //
         onError = function (err) {
@@ -13,17 +12,6 @@ angular.module("RPS").controller("storesController", ["$scope", "$http", functio
             alert(err);
         },
 
-        //
-        onLoadProfileSuccess = function (data) {
-            if (data.ok) {
-                $scope.userStores = data.result.stores;
-            } else {
-                console.warn(data.error);
-                alert(data.error.message);
-                $scope.goTo('/signin');
-            }
-        },
-        
         //
         onWorkStoreSuccess = function (data) {
             if (data.ok) {
@@ -33,24 +21,31 @@ angular.module("RPS").controller("storesController", ["$scope", "$http", functio
                 alert(data.error.message);
             }
         };
-    
+
 
     //
     $scope.selectStore = function (store) {
-        
+
         // no categories, no donuts
         if (store.categories.length) {
             alert('This store can be chosen because there is no category associated to it.');
         } else {
+            $scope.session.putObj('CUR_STORE', store);
             $http.put(workStoreUri + store._id).success(onWorkStoreSuccess).error(onError);
         }
 
     };
 
     //
-    $scope.name = curUsr.username;
-    $scope.userStores = [];
+    if (!curProf) {
+        $scope.session.clear();
+        $scope.storage.clear();
+        $scope.goTo('/signin');
+    } else {
+        //
+        $scope.name = $scope.storage.get('LAST_USER') || '';
+        $scope.userStores = curProf.stores;
 
-    //
-    $http.get(profileUri).success(onLoadProfileSuccess).error(onError);
+    }
+
 }]);
