@@ -6,8 +6,10 @@
     </div>
     <div class="topcoat-list">
         <h3 class="topcoat-list__header">Stores assigned to <span bindonce bo-text="name"></span>:</h3>
-        <ul class="topcoat-list__container" bindonce bo-show="$scope.stores">
-            <li class="topcoat-list__item"></li>
+        <ul class="topcoat-list__container" ng-show="(userStores.length !== 0)">
+            <li class="topcoat-list__item" bindonce ng-repeat="store in userStores" ng-click="selectStore(store._id)">
+                <span bo-text="store.name"></span>
+            </li>
         </ul>
     </div>
 </div>

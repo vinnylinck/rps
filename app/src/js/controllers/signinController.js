@@ -5,7 +5,7 @@ angular.module("RPS").controller("signinController", ["$scope", "$http", "$rootS
     var doLogin, onSuccess, onError;
 
     $scope.isLoading = false;
-    $scope.username = "";
+    $scope.username = $scope.storage.get("LAST_USER") || "";
     $scope.password = "";
 
     //
@@ -21,6 +21,7 @@ angular.module("RPS").controller("signinController", ["$scope", "$http", "$rootS
             } else {
                 // saving user
                 $scope.session.putObj("CUR_USER", data.result);
+                $scope.storage.put("LAST_USER", data.result.username);
 
                 // redirecting to store selection screen
                 $scope.goTo('/stores');
@@ -63,5 +64,8 @@ angular.module("RPS").controller("signinController", ["$scope", "$http", "$rootS
             doLogin($scope.username, $scope.password);
         }
     };
+    
+    // loading user
+    
 
 }]);

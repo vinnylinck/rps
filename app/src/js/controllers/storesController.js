@@ -7,25 +7,31 @@ angular.module("RPS").controller("storesController", ["$scope", "$http", functio
         profileUri = $scope.config.url + 'profiles/' + curUsr.profile,
 
         //
-        onError = function (err) {
+        onLoadProfileError = function (err) {
             console.warn(err);
             alert(err);
         },
         
         //
-        onSuccess = function (data) {
+        onLoadProfileSuccess = function (data) {
             if (data.ok) {
-                console.log(data);
+                $scope.userStores = data.result.stores;
             } else {
                 console.warn(data.error);
                 alert(data.error.message);
                 $scope.goTo('/signin');
             }
+        },
+        
+        //
+        selectStore = function (id) {
+            $http.
         };
 
     //
     $scope.name = curUsr.username;
+    $scope.userStores = [];
 
     //
-    $http.get(profileUri).success(onSuccess).error(onError);
+    $http.get(profileUri).success(onLoadProfileSuccess).error(onLoadProfileError);
 }]);
