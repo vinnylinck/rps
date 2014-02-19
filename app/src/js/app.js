@@ -21,6 +21,7 @@
         $routeProvider.when("/splash", { templateUrl: "partials/splash.html", controller: "splashController"});
         $routeProvider.when("/signin", { templateUrl: "partials/signin.html", controller: "signinController"});
         $routeProvider.when("/stores", { templateUrl: "partials/stores.html", controller: "storesController"});
+        $routeProvider.when("/home", { templateUrl: "partials/home.html", controller: "homeController"});
         
         $routeProvider.otherwise({ redirectTo: "/splash" });
         
