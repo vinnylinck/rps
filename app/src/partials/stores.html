@@ -1,15 +1,32 @@
-<div class="full">
-    <div class="topcoat-navigation-bar">
-        <div class="topcoat-navigation-bar__item center full">
-            <h1 class="topcoat-navigation-bar__title">Choose working store</h1>
+<div class="full layout">
+
+    <header class="item">
+        <div class="topcoat-navigation-bar">
+            <div class="topcoat-navigation-bar__item center full">
+                <h1 class="topcoat-navigation-bar__title">
+                    <span class="bold-text">Choose working store</span>
+                </h1>
+            </div>
         </div>
-    </div>
-    <div class="topcoat-list">
-        <h3 class="topcoat-list__header">Stores assigned to <span bindonce bo-text="name"></span>:</h3>
-        <ul class="topcoat-list__container">
-            <li class="topcoat-list__item" bindonce ng-repeat="store in userStores" ng-click="selectStore(store)">
-                <span bo-text="store.name"></span>
-            </li>
-        </ul>
-    </div>
+    </header>
+
+    <section class="item">
+        <div class="topcoat-list">
+            <h3 class="topcoat-list__header">Stores assigned to <span bindonce bo-text="name"></span>:</h3>
+            <ul class="topcoat-list__container">
+                <li class="topcoat-list__item" bindonce ng-repeat="store in userStores" ng-click="selectStore(store)">
+                    <span ng-show="store.categories.length" class="st-flag fail fa fa-ban"></span>
+                    <span ng-hide="store.categories.length" class="st-flag ok fa fa-check-circle"></span>
+                    <span class="light-text" bo-text="store.name"></span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    <footer class="item">
+        <center>
+            <div class="loadbar" ng-show="isLoading"></div><br>
+        </center>
+    </footer>
+
 </div>

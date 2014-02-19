@@ -126,3 +126,23 @@ html, body {
 .login-elm {
     width: 197px;
 }
+
+/* TEXTING */
+/*****************************************/
+.bold-text {
+    font-family: "Bebas Neue", Arial;
+}
+
+.light-text {
+    font-family: "Nunito", sans-serif;
+}
+
+/* STATUS FLAGs */
+/*****************************************/
+.st-flag.ok {
+    color: green;
+}
+
+.st-flag.fail {
+    color: red;
+}

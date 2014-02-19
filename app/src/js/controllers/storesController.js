@@ -10,6 +10,7 @@ angular.module("RPS").controller("storesController", ["$scope", "$http", functio
         onError = function (err) {
             console.warn(err);
             alert(err);
+            $scope.isLoading = false;
         },
 
         //
@@ -19,6 +20,7 @@ angular.module("RPS").controller("storesController", ["$scope", "$http", functio
             } else {
                 console.warn(data.error);
                 alert(data.error.message);
+                $scope.isLoading = false;
             }
         };
 
@@ -29,7 +31,8 @@ angular.module("RPS").controller("storesController", ["$scope", "$http", functio
         // no categories, no donuts
         if (store.categories.length) {
             alert('This store can be chosen because there is no category associated to it.');
-        } else {
+        } else if (!$scope.isLoading) {
+            $scope.isLoading = true;
             $scope.session.putObj('CUR_STORE', store);
             $http.put(workStoreUri + store._id).success(onWorkStoreSuccess).error(onError);
         }
@@ -43,9 +46,9 @@ angular.module("RPS").controller("storesController", ["$scope", "$http", functio
         $scope.goTo('/signin');
     } else {
         //
+        $scope.isLoading = false;
         $scope.name = $scope.storage.get('LAST_USER') || '';
         $scope.userStores = curProf.stores;
-
     }
 
 }]);

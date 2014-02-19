@@ -8,11 +8,11 @@
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
-  src: local('Nunito-Regular'), url(nunito-normal.woff) format('woff');
+  src: local('Nunito-Regular'), url(fonts/nunito-regular.woff) format('woff');
 }
 @font-face {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 700;
-  src: local('Nunito-Bold'), url(nunito-bold.woff) format('woff');
+  src: local('Nunito-Bold'), url(fonts/nunito-bold.woff) format('woff');
 }
