@@ -33,6 +33,7 @@ angular.module("RPS").controller("userContextController", ["$scope", "$http", fu
                 $scope.storage.clear();
             }
             
+            $scope.enableAnimate();
             $scope.session.clear();
             $scope.goTo('/signin');
         };
