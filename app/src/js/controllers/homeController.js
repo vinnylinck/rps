@@ -32,5 +32,6 @@ angular.module("RPS").controller("homeController", ["$scope", "$http", function 
     $scope.sandbox = $scope.contexts[last_tpl];
 
     // disabling animate
+    $scope.disableHeaderBack();
     $scope.disableAnimate();
 }]);

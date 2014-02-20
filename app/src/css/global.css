@@ -166,3 +166,40 @@ html, body {
     margin: 1em;
     line-height: 1.8;
 }
+
+.context-details {
+    margin: auto;
+}
+
+.context-details > img {
+    float: left;
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+}
+
+.context-details h1 {
+    padding: 12px 0px 4px 0px;
+    margin: 0px 0px 0px 0px;
+    font-size: 1.2rem;
+}
+
+.context-details h1.dark {
+    color: #C6C8C8;
+}
+
+.context-details h2 {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    font-size: 1.1rem;
+    font-weight: normal;
+}
+
+.context-details h2.dark {
+    color: #888;
+}
+
+.ctx-list-icon {
+    float: right;
+    font-size: 1.1em;
+}

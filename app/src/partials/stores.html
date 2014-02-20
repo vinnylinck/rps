@@ -2,7 +2,11 @@
 
     <header class="item">
         <div class="topcoat-navigation-bar">
-            <div class="topcoat-navigation-bar__item center full">
+
+            <div class="topcoat-navigation-bar__item left quarter" style="font-size: 1.3em" bindonce bo-show="isHeaderBackAllowed" ng-click="goBack()">
+                <span class="topcoat-icon fa fa-angle-left"></span>
+            </div>            
+            <div class="topcoat-navigation-bar__item center {{ headerClass }}" >
                 <h1 class="topcoat-navigation-bar__title">
                     <span class="bold-text">Choose working store</span>
                 </h1>
@@ -12,7 +16,7 @@
 
     <section class="item">
         <div class="topcoat-list">
-            <h3 class="topcoat-list__header">Stores assigned to <span bindonce bo-text="name"></span>:</h3>
+            <h3 class="topcoat-list__header">Stores assigned to <span bindonce bo-text="name"></span></h3>
             <ul class="topcoat-list__container">
                 <li class="topcoat-list__item" bindonce ng-repeat="store in userStores" ng-click="selectStore(store)">
                     <span ng-show="store.categories.length" class="st-flag fail fa fa-ban"></span>
@@ -22,7 +26,7 @@
             </ul>
         </div>
     </section>
-    
+
     <footer class="item">
         <center>
             <div class="loadbar" ng-show="isLoading"></div><br>

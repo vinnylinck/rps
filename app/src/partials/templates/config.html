@@ -1,9 +1,39 @@
-<div>
-    <b>TO BE DEFINED</b>
-    <ul>
-        <li>Change working store</li>
-        <li>Change Theme (light / dark)</li>
-        <li>Enable/Disable caching</li>
-        <li>Access app website</li>
-    </ul>
+<div class="context-details" ng-controller="configContextController">
+    <img src="img/res/icon-128.png">
+    <h1>Application settings</h1>
+    <h2>RIO Pocket Store</h2>
+    <h2>version: 0.1.0</h2>
+
+    <div class="topcoat-list__container" style="clear: both; border-bottom: none">
+        <ul class="topcoat-list list">
+            <li class="topcoat-list__item" ng-click="changeStore()">
+                Change working store
+                <span class="ctx-list-icon fa fa-angle-right"></span>
+            </li>
+            <li class="topcoat-list__item">
+                Enable dark theme
+                <span class="ctx-list-icon fa fa-flag"></span>
+            </li>   
+            <li class="topcoat-list__item">
+                Visit PocketStore website
+                <span class="ctx-list-icon fa fa-globe"></span>
+            </li>            
+            <!--
+<li class="topcoat-list__item">Change Theme color </li>
+<li class="topcoat-list__item">Access github</li>
+-->
+        </ul>
+    </div>
+
+
+    <!--
+<b>TO BE DEFINED</b>
+<ul>
+<li>Change working store</li>
+<li>Change Theme (light / dark)</li>
+<li>Enable/Disable caching</li>
+<li>Access app website</li>
+</ul>
+
+-->
 </div>
