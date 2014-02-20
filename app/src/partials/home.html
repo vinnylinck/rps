@@ -3,33 +3,26 @@
     <header class="item">
         <div class="topcoat-navigation-bar">
             <div class="topcoat-navigation-bar__item center full">
-                <h1 class="topcoat-navigation-bar__title"><span bindonce bo-text="storeName"></span></h1>
+                <h1 class="topcoat-navigation-bar__title">
+                    <span class="bold-text" bindonce bo-text="storeName"></span>
+                </h1>
             </div>
         </div>
     </header>
 
     <section class="item">
-
-        <div class="wide">
-            Flexbox is awesome!
-        </div>
-
+        <div data-ng-class="{'animate-slide': isLayoutAnimated}" ng-include="sandbox.tpl"></div>
     </section>
 
 
     <footer class="item">
         <div class="topcoat-tab-bar wide">
-            <label class="topcoat-tab-bar__item">
-                <input type="radio" name="tab-bar">
-                <button class="topcoat-tab-bar__button wide">One</button>
-            </label>
-            <label class="topcoat-tab-bar__item">
-                <input type="radio" name="tab-bar">
-                <button class="topcoat-tab-bar__button wide">Two</button>
-            </label>
-            <label class="topcoat-tab-bar__item">
-                <input type="radio" name="tab-bar">
-                <button class="topcoat-tab-bar__button wide">Three</button>
+
+            <label class="topcoat-tab-bar__item" ng-repeat="ctx in contexts" ng-click="loadContext($index)">
+                <input type="radio" name="tab-bar" ng-checked="(sandbox.key === ctx.key)">
+                <button class="topcoat-tab-bar__button wide">
+                    <span class="context-btn fa {{ ctx.icon }}"></span>
+                </button>
             </label>
         </div>
     </footer>

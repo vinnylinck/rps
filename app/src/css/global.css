@@ -58,13 +58,19 @@ html, body {
     -webkit-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    overflow-y: scroll;
+    overflow:auto;
 }
 
 .wide {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
+}
+
+.tall {
+    height: 100%;
+    min-height: 100%;
+    max-height: 100%;
 }
 
 .aligner {
@@ -145,4 +151,18 @@ html, body {
 
 .st-flag.fail {
     color: red;
+}
+
+/* APP CONTEXT */
+/*****************************************/
+.context-btn {
+    font-size: 1.3em;
+}
+
+.context-info {
+    font-family: 'Lucida Grande', Helvetica, 'Arial Unicode MS', 'Arial Unicode', Arial, sans-serif;
+    font-size: 12px;
+    text-align: justify;
+    margin: 1em;
+    line-height: 1.8;
 }
