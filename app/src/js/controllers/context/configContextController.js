@@ -9,5 +9,12 @@ angular.module("RPS").controller("configContextController", ["$scope", function 
         $scope.goTo('/stores');
     };
     
+    //
+    $scope.showMap = function () {
+        var store = $scope.session.getObj('CUR_STORE');
+        
+        $scope.enableAnimate();
+        $scope.goTo('/map/' + store.name + '/' + store.coords.lat + '/' + store.coords.lon);
+    };
     
 }]);

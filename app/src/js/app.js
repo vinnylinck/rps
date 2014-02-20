@@ -22,6 +22,7 @@
         $routeProvider.when("/signin", { templateUrl: "partials/signin.html", controller: "signinController"});
         $routeProvider.when("/stores", { templateUrl: "partials/stores.html", controller: "storesController"});
         $routeProvider.when("/home", { templateUrl: "partials/home.html", controller: "homeController"});
+        $routeProvider.when("/map/:label/:lat/:lon", { templateUrl: "partials/map.html", controller: "mapController"});
         
         $routeProvider.otherwise({ redirectTo: "/splash" });
         
