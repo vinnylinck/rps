@@ -80,12 +80,13 @@ angular.module("RPS").directive("gmap", ['$window', '$q', function ($window, $q)
         //
         attrs.$observe('gmap', function (label) {
             if (hasGMap()) {
-                setPin(attrs.gmap, attrs.lat, attrs.lon);
+                setPin(elm[0], attrs.gmap, attrs.lat, attrs.lon);
             } else {
                 lazyLoad().then(
                     function () {
                         scope.isLoading=false;
                         setPin(elm[0], attrs.gmap, attrs.lat, attrs.lon);
+                        scope.isLoading = false;
                     },
 
                     function () {
@@ -95,31 +96,5 @@ angular.module("RPS").directive("gmap", ['$window', '$q', function ($window, $q)
                 );
             }
         });
-
-        /*
-        var map, options, showPosition, pin, store,
-            iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
-
-        pin = function (label, location) {
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                title: label
-            });
-
-            map.setCenter(location);
-        };
-
-        store = function (label, location) {
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map,
-                title: label,
-                icon: "/img/rice_0.png"
-            });
-        };
-
-        navigator.geolocation.getCurrentPosition(showPosition);
-        */
     };
 }]);

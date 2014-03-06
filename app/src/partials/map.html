@@ -15,5 +15,9 @@
     </header>
 
     <section class="item" gmap="{{label}}" data-lat="{{lat}}" data-lon="{{lon}}">
+        <center ng-show="isLoading">
+            <br><br><br>
+            <div class="loadbar" ng-show="isLoading"></div>
+        </center>
     </section>
 </div>
