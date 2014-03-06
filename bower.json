@@ -30,6 +30,7 @@
     "angular-animate": "~1.2.12",
     "topcoat": "~0.8.0",
     "angular-bindonce": "~0.3.1",
-    "font-awesome": "~4.0.3"
+    "font-awesome": "~4.0.3",
+    "yepnope": "~1.5.4"
   }
 }
